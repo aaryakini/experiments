@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Xanh+Mono:ital@0;1&display=swap');
+
+body{
+    background-color: black;
+    color: cadetblue;
+}
+
+h1{
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: clamp(1rem, 20vw, 20vw); */
+    font-size: 20px;
+    letter-spacing: -1px;
+    /* text-transform: uppercase; */
+    margin: 0px;
+}
+
+.number {
+    font-family: "Wavefont", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "ROND" 0,
+        "YELA" 0;
+    vertical-align: -0.5vh;
+    font-size: 4.8vh;
+    padding-right: 2px;
+}
