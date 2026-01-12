@@ -8,14 +8,47 @@
 </head>
 <body>
     <div class="header">
-        <h1>unix time</h1>
+        <p id="title">unix time</p>
+        <div class="data">
+            <p>accessed at:<br><span class="number" id="loginTime"></span></p>
+            <p>unix time:<br><span class="number" id="currentTime"></span> non-leap seconds have elapsed <br> since 00:00:00 UTC on January 1, 1970.</p>
+            <p>coordinates:<br><span id="coords"></span></p>
+        </div>
+    </div>
+
+    <div class="row2">
+        <form id="submitDate">
+            <input type="date" id="date" placeholder="date">
+            <!-- <input type="number" min="1" max="31" id="day" name="day" placeholder="day">
+            <input type="number" min="1" max="12" id="month" name="month" placeholder="month">
+            <input type="number" id="year" name="year" placeholder="year"> -->
+            <input type="submit" value="Submit">
+        </form>
+
+        <p>Your special date in unix time is = <span id="convertToUnix"></span></p>
+
+        <div id="dateList"></div>
     </div>
 
     <div class="container">
-        <p id="demo"></p>
-       <p>login time = <span class="number" id="loginTime"></span></p>
-       <!-- <p>current unix time = <span class="number" id="currentTime"></span></p> -->
+        <div class="left">
+            <p>Unix time is a date and time representation widely used in computing. It measures time by the number of non-leap seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch. For example, at midnight on 1 January 2010, Unix time was 1262304000.</p>
+            <p>Unix time originated as the system time of Unix operating systems. It has come to be widely used in other computer operating systems, file systems, programming languages, and databases. In modern computing, values are sometimes stored with higher granularity, such as microseconds or nanoseconds.</p>
+        </div>
+
+        <div class="right">
+            <p>Definition</p>
+            <p>Unix time is currently defined as the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970, which is referred to as the Unix epoch.[3] Unix time is typically encoded as a signed integer.</p>
+            <p>The Unix time 0 is exactly midnight UTC on 1 January 1970, with Unix time incrementing by 1 for every non-leap second after this. For example, 00:00:00 UTC on 1 January 1971 is represented in Unix time as 31536000. Negative values, on systems that support them, indicate times before the Unix epoch, with the value decreasing by 1 for every non-leap second before the epoch. For example, 00:00:00 UTC on 1 January 1969 is represented in Unix time as −31536000. Every day in Unix time consists of exactly 86400 seconds.</p>
+            <p>Unix time is sometimes referred to as Epoch time. This can be misleading since Unix time is not the only time system based on an epoch and the Unix epoch is not the only epoch used by other time systems.[5]</p>
+            <p>Below is a table calculating the decades passed from 1970 in real time.</p>
+        </div>
+        
+        <div class="left">
+            <p>Unix time[a] is a date and time representation widely used in computing. It measures time by the number of non-leap seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch. For example, at midnight on 1 January 2010, Unix time was 1262304000.</p>
+            <p>Unix time originated as the system time of Unix operating systems. It has come to be widely used in other computer operating systems, file systems, programming languages, and databases. In modern computing, values are sometimes stored with higher granularity, such as microseconds or nanoseconds.</p>
+        </div>
     </div>
+    <script type="text/javascript" src="index.js"></script>
 </body>
-<script type="text/javascript" src="index.js"></script>
 </html>

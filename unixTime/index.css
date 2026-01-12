@@ -1,22 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Xanh+Mono:ital@0;1&display=swap');
 
-body{
-    background-color: black;
-    color: cadetblue;
+@font-face {
+    font-family: Shinka Mono;
+    src: url(fonts/ShinkaMono/Shinka-Light-Trial.woff) format('woff'),
+         url(fonts/ShinkaMono/Shinka-Light-Trial.woff2) format('woff2');
 }
 
+body{
+    background-color: whitesmoke;
+    color: black;
+    /* font-size: clamp(10px,1vw,20px); */
+    font-size: 16px;
+    overflow-x: hidden;
+    margin: 0px;
+    height: 200vh;
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+}
+
+p{
+    filter: drop-shadow(0px 0px 0.9px black);
+}
+
+input{
+    font-family: 'Xanh Mono', serif;
+    font-size: 16px;
+}
+
+.header{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100vw;
+    height: auto;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: whitesmoke;
+    font-family: 'Xanh Mono', serif;
+    -webkit-text-stroke: 0.03em;
+    letter-spacing: 0.02em;
+    padding: 15px 0px;
+    /* filter: drop-shadow(0px 0px 10px black); */
+}
+
+.row2{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100vw;
+    height: auto;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    background-color: whitesmoke;
+    font-family: 'Xanh Mono', serif;
+    -webkit-text-stroke: 0.03em;
+    letter-spacing: 0.02em;
+    padding: 15px 20px;
+}
+
+/* #title{
+    font-size:40px;
+    text-transform: uppercase;
+} */
+
+.data{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.header p{
+    margin: 0px;
+    padding: 5px 20px;
+}
+
+.container{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* > is a child combinator selector. 
+it selects only direct descendants of the class
+and not further descendants*/
+.container > div{
+    padding: 20px;
+    border-right: 1px solid black;
+    /* border-bottom: 0.1px solid black; */
+}
+
+.left{
+    border-right: 1px solid black;
+}
+
+
+
+
+
+
+
 h1{
-    font-family: "Xanh Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
     /* font-size: clamp(1rem, 20vw, 20vw); */
-    font-size: 20px;
     letter-spacing: -1px;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     margin: 0px;
 }
 
-.number {
+/* .number {
     font-family: "Wavefont", system-ui;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -27,4 +122,4 @@ h1{
     vertical-align: -0.5vh;
     font-size: 4.8vh;
     padding-right: 2px;
-}
+} */
