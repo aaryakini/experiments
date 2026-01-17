@@ -8,31 +8,77 @@ loginTime.innerHTML = Math.floor(Date.now()/1000) + "s<br>"+ date.toLocaleTimeSt
 const myForm = document.getElementById('submitDate');
 
 myForm.addEventListener('submit', function(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const inputString = document.getElementById('date');
-  dateString = inputString.value;
-//   console.log("date string = " + dateString);
-  const dateValues = dateString.split("-");
-//   console.log("date string array values = " + dateValues);
+    const inputString = document.getElementById('date');
+    const dateString = inputString.value;
+    //array of date components:
+    const dateValues = dateString.split("-");
+    
+    let secondsToAdd;
+    const time = document.getElementById('time');
+    const timeString = time.value;
+    if (timeString == ""){
+        secondsToAdd = 0;
+    } else{
+        secondsToAdd = getSeconds(timeString);
+    }
 
-  const day = Number(dateValues[2]);
-  const month = Number(dateValues[1]) - 1;
-  const year = Number(dateValues[0]);
+    const day = Number(dateValues[2]);
+    const month = Number(dateValues[1]) - 1;
+    const year = Number(dateValues[0]);
 
-  let unixTime = Math.floor(Date.UTC(year, month, day, 0, 0, 0)/1000);
-//   console.log("unix time = " + unixTime);
+    let unixTime = Math.floor(Date.UTC(year, month, day, 0, 0, 0)/1000) + secondsToAdd;
+    //   console.log("unix time = " + unixTime);
 
-  const convertToUnix = document.getElementById('convertToUnix');
-  convertToUnix.innerHTML = unixTime;
-  myForm.reset();
+    // const convertToUnix = document.getElementById('convertToUnix');
+    // convertToUnix.innerHTML = unixTime;
 
-  const list = document.getElementById('dateList');
-  const specialDate = document.createElement("p");
-  specialDate.innerHTML = day + " " + stringMonth(month) + " " + year + " || " + unixTime;
-  list.appendChild(specialDate);
+    const list = document.getElementById('dateList');
+    const specialDate = document.createElement("p");
+
+    if (timeString == ""){
+        specialDate.innerHTML = day + " " + stringMonth(month) + " " + year + " in Unix time is " + unixTime + ".";
+    } else{
+        specialDate.innerHTML = day + " " + stringMonth(month) + " " + year + ", " + convertTo12(timeString) + " in Unix time is " + unixTime + ".";
+    }
+    list.appendChild(specialDate);
+
+    myForm.reset()
 });
 
+
+function getSeconds(timeString){
+    const timeValues = timeString.split(":");
+    const hours = Number(timeValues[0])*60*60;
+    const minutes = Number(timeValues[1]) * 60;
+
+    const totalSeconds = hours + minutes;
+
+    return totalSeconds;
+}
+
+function convertTo12(timeString){
+    const timeValues = timeString.split(":");
+    let ofDay;
+    let hours = Number(timeValues[0]);
+    let minutes = timeValues[1];
+
+    if (hours > 12){
+        ofDay = "PM";
+        hours = Math.abs(hours - 12);
+    } else if (hours == 12){
+        ofDay = "PM";
+        hours = 12;
+    }else if (hours == 0){
+        ofDay = "AM";
+        hours = 12;
+    }else{
+        ofDay = "AM";
+    }
+
+    return `${hours}:${minutes} ${ofDay}`;
+}
 
 //converting number to string month
 function stringMonth(number){

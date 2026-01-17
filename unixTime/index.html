@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="header">
-        <p id="title">unix time</p>
+        <!-- <p id="title">unix time</p> -->
+        <img id="logo" src="assets/logo.svg">
         <div class="data">
             <p>accessed at:<br><span class="number" id="loginTime"></span></p>
             <p>unix time:<br><span class="number" id="currentTime"></span> non-leap seconds have elapsed <br> since 00:00:00 UTC on January 1, 1970.</p>
@@ -16,37 +17,153 @@
         </div>
     </div>
 
-    <div class="row2">
+    <div class="calculator">
+        <p>Convert a special date/time into Unix time!</p>
         <form id="submitDate">
-            <input type="date" id="date" placeholder="date">
-            <!-- <input type="number" min="1" max="31" id="day" name="day" placeholder="day">
-            <input type="number" min="1" max="12" id="month" name="month" placeholder="month">
-            <input type="number" id="year" name="year" placeholder="year"> -->
-            <input type="submit" value="Submit">
+            <input id="date" type="date" placeholder="date" required>
+            <input id="time" type="time">
+            <input id="submit" type="submit" value="Submit">
         </form>
-
-        <p>Your special date in unix time is = <span id="convertToUnix"></span></p>
+        <p>*Unix time is represented in Coordinated Universal Time. Please input your date/time in UTC for most accurate results. If you do not input a time, the calculator will assume 12 AM on the specified date.</p>
 
         <div id="dateList"></div>
     </div>
 
-    <div class="container">
-        <div class="left">
+    <div class="definitions">
+        <div class="inner">
             <p>Unix time is a date and time representation widely used in computing. It measures time by the number of non-leap seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch. For example, at midnight on 1 January 2010, Unix time was 1262304000.</p>
             <p>Unix time originated as the system time of Unix operating systems. It has come to be widely used in other computer operating systems, file systems, programming languages, and databases. In modern computing, values are sometimes stored with higher granularity, such as microseconds or nanoseconds.</p>
         </div>
 
-        <div class="right">
-            <p>Definition</p>
-            <p>Unix time is currently defined as the number of non-leap seconds which have passed since 00:00:00 UTC on Thursday, 1 January 1970, which is referred to as the Unix epoch.[3] Unix time is typically encoded as a signed integer.</p>
-            <p>The Unix time 0 is exactly midnight UTC on 1 January 1970, with Unix time incrementing by 1 for every non-leap second after this. For example, 00:00:00 UTC on 1 January 1971 is represented in Unix time as 31536000. Negative values, on systems that support them, indicate times before the Unix epoch, with the value decreasing by 1 for every non-leap second before the epoch. For example, 00:00:00 UTC on 1 January 1969 is represented in Unix time as −31536000. Every day in Unix time consists of exactly 86400 seconds.</p>
-            <p>Unix time is sometimes referred to as Epoch time. This can be misleading since Unix time is not the only time system based on an epoch and the Unix epoch is not the only epoch used by other time systems.[5]</p>
-            <p>Below is a table calculating the decades passed from 1970 in real time.</p>
+        <div class="inner">
+            <p>Unix time is typically encoded as a signed integer. The Unix time 0 is exactly midnight UTC on 1 January 1970, with Unix time incrementing by 1 for every non-leap second after this. For example, 00:00:00 UTC on 1 January 1971 is represented in Unix time as 31536000. Negative values, on systems that support them, indicate times before the Unix epoch, with the value decreasing by 1 for every non-leap second before the epoch. For example, 00:00:00 UTC on 1 January 1969 is represented in Unix time as −31536000. Every day in Unix time consists of exactly 86400 seconds.</p>
+            <p>Unix time is sometimes referred to as Epoch time. This can be misleading since Unix time is not the only time system based on an epoch and the Unix epoch is not the only epoch used by other time systems.</p>
         </div>
         
-        <div class="left">
-            <p>Unix time[a] is a date and time representation widely used in computing. It measures time by the number of non-leap seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch. For example, at midnight on 1 January 2010, Unix time was 1262304000.</p>
-            <p>Unix time originated as the system time of Unix operating systems. It has come to be widely used in other computer operating systems, file systems, programming languages, and databases. In modern computing, values are sometimes stored with higher granularity, such as microseconds or nanoseconds.</p>
+        <div>
+            <img src="assets/1billionSeconds.jpg">
+            <p class="caption">Unix time passed 1000000000 seconds on 2001-09-09T01:46:40Z. It was celebrated in Copenhagen, Denmark, at a party held by the Danish UNIX User Group at 03:46:40 local time.</p>
+        </div>
+    </div>
+
+    <div class="essayContainer">
+        <div class="column essay">
+            <h1 class="title">The Evolution of the Unix Time-sharing System*</h1>
+            <p class="author">Dennis M. Ritchie<br>Bell Laboratories, Murray Hill, NJ, 07974</p>
+            <div class="pair abstract">
+                <p class="h2">Abstract</p>
+                <p>This paper presents a brief history of the early development of the Unix operating system. It
+                    concentrates on the evolution of the file system, the process-control mechanism, and the idea of
+                    pipelined commands. Some attention is paid to social conditions during the development of the
+                    system. </p>
+            </div>
+    
+            <p class="note">NOTE: *This paper was first presented at the Language Design and Programming Methodology
+                conference at Sydney, Australia, September 1979. The conference proceedings were published as
+                Lecture Notes in Computer Science #79: Language Design and Programming Methodology,
+                Springer-Verlag, 1980. This rendition is based on a reprinted version appearing in AT&T Bell
+                Laboratories Technical Journal 63 No. 6 Part 2, October 1984, pp. 1577-93.</p>
+    
+            <div class="pair introduction">
+                <p class="h2">Introduction</p>
+                <p>During the past few years, the Unix operating system has come into wide use, so wide that its very name
+                    has become a trademark of Bell Laboratories. Its important characteristics have become known to many
+                    people. It has suffered much rewriting and tinkering since the first publication describing it in 1974 [1],
+                    but few fundamental changes. However, Unix was born in 1969 not 1974, and the account of its
+                    development makes a little-known and perhaps instructive story. This paper presents a technical and
+                    social history of the evolution of the system.</p>
+            </div>
+    
+            <div class="pair origins">
+                <p class="h2">Origins</p>
+                <p>For computer science at Bell Laboratories, the period 1968-1969 was somewhat unsettled. The main
+                    reason for this was the slow, though clearly inevitable, withdrawal of the Labs from the Multics project.
+                    To the Labs computing community as a whole, the problem was the increasing obviousness of the
+                    failure of Multics to deliver promptly any sort of usable system, let alone the panacea envisioned earlier.
+                    For much of this time, the Murray Hill Computer Center was also running a costly GE 645 machine that
+                    inadequately simulated the GE 635. Another shake-up that occurred during this period was the
+                    organizational separation of computing services and computing research.</p>
+    
+                <p>From the point of view of the group that was to be most involved in the beginnings of Unix (K.
+                    Thompson, Ritchie, M. D. McIlroy, J. F. Ossanna), the decline and fall of Multics had a directly felt
+                    effect. We were among the last Bell Laboratories holdouts actually working on Multics, so we still felt
+                    some sort of stake in its success. More important, the convenient interactive computing service that
+                    Multics had promised to the entire community was in fact available to our limited group, at first under
+                    the CTSS system used to develop Multics, and later under Multics itself. Even though Multics could not
+                    then support many users, it could support us, albeit at exorbitant cost. We didn't want to lose the
+                    pleasant niche we occupied, because no similar ones were available; even the time-sharing service that
+                    would later be offered under GE's operating system did not exist. What we wanted to preserve was not
+                    just a good environment in which to do programming, but a system around which a fellowship could
+                    form. We knew from experience that the essence of communal computing, as supplied by
+                    remote-access, time-shared machines, is not just to type programs into a terminal instead of a keypunch,
+                    but to encourage close communication.</p>
+    
+                <p>Thus, during 1969, we began trying to find an alternative to Multics. The search took several forms.
+                    Throughout 1969 we (mainly Ossanna, Thompson, Ritchie) lobbied intensively for the purchase of a
+                    medium-scale machine for which we promised to write an operating system; the machines we suggested
+                    were the DEC PDP-10 and the SDS (later Xerox) Sigma 7. The effort was frustrating, because our
+                    proposals were never clearly and finally turned down, but yet were certainly never accepted. Several
+                    times it seemed we were very near success. The final blow to this effort came when we presented an
+                    exquisitely complicated proposal, designed to minimize financial outlay, that involved some outright
+                    purchase, some third-party lease, and a plan to turn in a DEC KA-10 processor on the
+                    soon-to-be-announced and more capable KI-10. The proposal was rejected, and rumor soon had it that
+                    W. O. Baker (then vice-president of Research) had reacted to it with the comment 'Bell Laboratories just
+                    doesn't do business this way!'</p>
+    
+                <p>Actually, it is perfectly obvious in retrospect (and should have been at the time) that we were asking the
+                    Labs to spend too much money on too few people with too vague a plan. Moreover, I am quite sure that
+                    at that time operating systems were not, for our management, an attractive area in which to support
+                    work. They were in the process of extricating themselves not only from an operating system
+                    development effort that had failed, but from running the local Computation Center. Thus it may have
+                    seemed that buying a machine such as we suggested might lead on the one hand to yet another Multics,
+                    or on the other, if we produced something useful, to yet another Comp Center for them to be responsible
+                    for.</p>
+                
+                <p>Besides the financial agitations that took place in 1969, there was technical work also. Thompson, R. H.
+                    Canaday, and Ritchie developed, on blackboards and scribbled notes, the basic design of a file system
+                    that was later to become the heart of Unix. Most of the design was Thompson's, as was the impulse to
+                    think about file systems at all, but I believe I contributed the idea of device files. Thompson's itch for
+                    creation of an operating system took several forms during this period; he also wrote (on Multics) a fairly
+                    detailed simulation of the performance of the proposed file system design and of paging behavior of
+                    programs. In addition, he started work on a new operating system for the GE-645, going as far as writing
+                    an assembler for the machine and a rudimentary operating system kernel whose greatest achievement, so
+                    far as I remember, was to type a greeting message. The complexity of the machine was such that a mere
+                    message was already a fairly notable accomplishment, but when it became clear that the lifetime of the
+                    645 at the Labs was measured in months, the work was dropped.</p>
+    
+                <p>Also during 1969, Thompson developed the game of 'Space Travel.' First written on Multics, then
+                    transliterated into Fortran for GECOS (the operating system for the GE, later Honeywell, 635), it was
+                    nothing less than a simulation of the movement of the major bodies of the Solar System, with the player
+                    guiding a ship here and there, observing the scenery, and attempting to land on the various planets and
+                    moons. The GECOS version was unsatisfactory in two important respects: first, the display of the state
+                    of the game was jerky and hard to control because one had to type commands at it, and second, a game
+                    cost about $75 for CPU time on the big computer. It did not take long, therefore, for Thompson to find a
+                    little-used PDP-7 computer with an excellent display processor; the whole system was used as a
+                    Graphic-II terminal. He and I rewrote Space Travel to run on this machine. The undertaking was more
+                    ambitious than it might seem; because we disdained all existing software, we had to write a
+                    floating-point arithmetic package, the pointwise specification of the graphic characters for the display,
+                    and a debugging subsystem that continuously displayed the contents of typed-in locations in a corner of
+                    the screen. All this was written in assembly language for a cross-assembler that ran under GECOS and
+                    produced paper tapes to be carried to the PDP-7.</p>
+                
+                <p>Space Travel, though it made a very attractive game, served mainly as an introduction to the clumsy
+                    technology of preparing programs for the PDP-7. Soon Thompson began implementing the paper file
+                    system (perhaps 'chalk file system' would be more accurate) that had been designed earlier. A file
+                    system without a way to exercise it is a sterile proposition, so he proceeded to flesh it out with the other
+                    requirements for a working operating system, in particular the notion of processes. Then came a small
+                    set of user-level utilities: the means to copy, print, delete, and edit files, and of course a simple
+                    command interpreter (shell). Up to this time all the programs were written using GECOS and files were
+                    transferred to the PDP-7 on paper tape; but once an assembler was completed the system was able to
+                    support itself. Although it was not until well into 1970 that Brian Kernighan suggested the name 'Unix,'
+                    in a somewhat treacherous pun on 'Multics,' the operating system we know today was born.</p>
+            </div>
+    
+            <p>READ THE FULL ARTICLE</p>
+        </div>
+
+        <div class="column items">
+            <img src="assets/1billionSeconds.jpg">
+            <img src="assets/1billionSeconds.jpg">
         </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
